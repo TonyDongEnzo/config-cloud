@@ -1,36 +1,35 @@
 server:
-  port: 8000 # ??
+  port: 8000
 
 spring:
   application:
-    name: service-provider # ????(?????)
+    name: service-provider 
   datasource:
-    name: mydb #???
-    url: jdbc:mysql://localhost:3306/shopdb #url
-    username: root #???
-    password: root #??
-    driver-class-name: com.mysql.cj.jdbc.Driver #?????
+    name: mydb
+    url: jdbc:mysql://localhost:3306/shopdb
+    username: root 
+    password: root 
+    driver-class-name: com.mysql.cj.jdbc.Driver 
 
 mybatis:
-  mapper-locations: classpath:mapper/*.xml #????
-  type-aliases-package: com.example.provider.domain #?????
+  mapper-locations: classpath:mapper/*.xml 
+  type-aliases-package: com.example.provider.domain 
   config-location: classpath:mybatis/mybatis-config.xml
 
-# ?? Eureka Server ????
 eureka:
   instance:
-    prefer-ip-address: true       # ???? ip ????
-    instance-id: ${spring.cloud.client.ip-address}:${server.port} # ip:port
+    prefer-ip-address: true      
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} 
   client:
-    service-url:                  # ??????????
+    service-url:               
       defaultZone: http://admin:123456@localhost:7000/eureka/
 
-# ???????????
+
 management:
   endpoints:
     web:
       exposure:
-        include: shutdown         # ?? shutdown ????
+        include: shutdown       
   endpoint:
     shutdown:
-      enabled: true               # ?? shutdown ??????
+      enabled: true             
