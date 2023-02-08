@@ -1,2 +1,5 @@
 server:
   port: 5100
+spring:
+  application:
+    name: config-server
